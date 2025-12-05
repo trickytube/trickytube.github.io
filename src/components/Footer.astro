@@ -1,11 +1,13 @@
 ---
 const currentYear = new Date().getFullYear();
+import { siteConfig } from "../config/site";
 ---
+
 <footer class="footer">
   <div class="container footer-content">
     <div class="footer-brand">
-      <h3>NewsFlow</h3>
-      <p>Delivering the latest stories that matter.</p>
+      <h3>{siteConfig.name}</h3>
+      <p>{siteConfig.description}</p>
     </div>
     <div class="footer-links">
       <div class="link-group">
@@ -27,7 +29,7 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
   <div class="container copyright">
-    <p>&copy; {currentYear} NewsFlow. All rights reserved.</p>
+    <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
   </div>
 </footer>
 
