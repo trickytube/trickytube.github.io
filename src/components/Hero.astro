@@ -93,6 +93,10 @@ const { title, excerpt, image, slug, category } = Astro.props;
     margin-bottom: var(--spacing-lg);
     max-width: 600px;
     line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
   }
 
   .read-more {
