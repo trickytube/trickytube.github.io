@@ -8,11 +8,15 @@ interface Props {
 }
 
 const { title, excerpt, image, slug, category } = Astro.props;
+
+import {resolveNewsImage} from '/src/lib/resolveNewsImage.ts';
+import { Image } from 'astro:assets';
+const img = resolveNewsImage(image);
 ---
 
 <section class="hero">
   <div class="hero-image-container">
-    <img src={image} alt={title} class="hero-image" />
+    <Image src={img} alt={title} class="hero-image" />
     <div class="hero-overlay"></div>
   </div>
   <div class="container hero-content">

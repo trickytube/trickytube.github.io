@@ -15,12 +15,16 @@ const formattedDate = date.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+import {resolveNewsImage} from '/src/lib/resolveNewsImage.ts';
+import { Image } from 'astro:assets';
+const img = resolveNewsImage(image);
 ---
 
 <article class="article-card">
   <a href={`/news/${slug}`} class="card-image-link">
     <div class="card-image-container">
-      <img src={image} alt={title} loading="lazy" />
+      <Image src={img} alt={title} loading="lazy" />
     </div>
   </a>
   <div class="card-content">
