@@ -1,0 +1,1 @@
+# Add your own content by editing /src/pages/privacy-policy/privacy-policy.md

@@ -21,7 +21,7 @@ import { Image } from 'astro:assets';
 const img = resolveNewsImage(image);
 ---
 
-<article class="article-card">
+<article class="article-card border">
   <a href={`/news/${slug}`} class="card-image-link">
     <div class="card-image-container">
       <Image src={img} alt={title} loading="lazy" />
@@ -41,7 +41,6 @@ const img = resolveNewsImage(image);
   .article-card {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-bg-secondary);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -98,10 +97,6 @@ const img = resolveNewsImage(image);
     font-size: 1.25rem;
     margin-bottom: var(--spacing-sm);
     line-height: 1.4;
-  }
-
-  .card-title a {
-    color: #fff;
   }
 
   .card-title a:hover {

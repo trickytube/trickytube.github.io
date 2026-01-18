@@ -1,1 +1,1 @@
-# Add your own content my editing /src/pages/disclaimer/disclaimer.md
+# Add your own content by editing /src/pages/disclaimer/disclaimer.md

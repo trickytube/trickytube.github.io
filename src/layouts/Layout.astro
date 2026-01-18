@@ -42,25 +42,12 @@ const taglink = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
 }
     <title>{title} | {name}</title>
   </head>
-  <body>
-    <div class="app-layout">
+  <body class="flex flex-col min-h-screen font-display font-normal px-4 max-w-7xl mx-auto bg-white text-black ">
       <Header />
-      <main class="main-content">
+      <main class="flex flex-col flex-1">
         <slot />
       </main>
       <Footer />
-    </div>
   </body>
 </html>
 
-<style>
-  .app-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .main-content {
-    flex: 1;
-  }
-</style>

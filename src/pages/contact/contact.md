@@ -1,1 +1,1 @@
-# Add your own content my editing /src/pages/contact/contact.md
+# Add your own content by editing /src/pages/contact/contact.md

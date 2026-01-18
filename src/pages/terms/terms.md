@@ -1,1 +1,0 @@
-# Add your own content my editing /src/pages/terms/terms.md
