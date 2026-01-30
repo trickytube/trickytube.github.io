@@ -1,1 +1,0 @@
-# Add your own content by editing /src/pages/about/about.md
