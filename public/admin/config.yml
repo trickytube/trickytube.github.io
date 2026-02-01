@@ -3,12 +3,12 @@
 # Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
-  repo: tushar-manna/news-site
+  repo: trickytube/trickytube
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
-  auth_endpoint: /sites/c6bdba2f-d1fd-4d92-b97c-0e2c5188bb8b/pkce
-  auth_token_endpoint: /sites/c6bdba2f-d1fd-4d92-b97c-0e2c5188bb8b/token
+  auth_endpoint: /sites/c2b336e5-caa5-4206-9b42-286143d05812/pkce
+  auth_token_endpoint: /sites/c2b336e5-caa5-4206-9b42-286143d05812/token
   gateway_url: https://gateway.decapbridge.com
 
   # See who did what (optional)
@@ -29,6 +29,9 @@ auth:
 
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in Decap CMS (optional)
+site_url: https://trickytube.com
 
 
 
