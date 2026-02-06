@@ -4,7 +4,7 @@ excerpt: India’s air pollution crisis is no longer just an environmental issue
 publishDate: 2026-01-27
 image: /src/assets/news/india_air_pollution_costing_more_than_any_trade_war.jpeg
 category: International
-featured: true
+featured: false
 tags:
   - india-air-pollution-economy
   - air-pollution-gdp-loss
