@@ -3,7 +3,7 @@
 # Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
-  repo: trickytube/trickytube
+  repo: trickytube/trickytube.github.io
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
