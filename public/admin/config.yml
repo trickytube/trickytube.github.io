@@ -36,7 +36,7 @@ site_url: https://trickytube.com
 
 
 
-media_folder: "src/asstets/news"
+media_folder: "src/assets/news"
 
 
 collections:
