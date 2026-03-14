@@ -1,0 +1,14 @@
+---
+//this ContentLayout page was made to apply the main layout with some extra css for the raw markdown files
+import Layout from "./Layout.astro";
+
+const {frontmatter} = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+    <div class="flex justify-center">
+     <div class="prose">
+        <slot/>
+    </div>
+   </div>
+</Layout>

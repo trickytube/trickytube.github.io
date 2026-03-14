@@ -2,16 +2,16 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { siteConfig } from "../config/site";
-const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const {PUBLIC_GA_ID, PUBLIC_SITE_NAME, PUBLIC_SITE_DESC} = import.meta.env;
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
-const name = siteConfig.name;
-const taglink = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+const siteName = PUBLIC_SITE_NAME || "modify site name on .env or .env.development";
+const siteDesc = PUBLIC_SITE_DESC || "modify site description on .env or .env.development"
+const taglink = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`
 ---
 
 <!doctype html>
@@ -24,30 +24,35 @@ const taglink = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
     <meta name="generator" content={Astro.generator} />
     <!-- Google tag (gtag.js) -->
 {
-  GA_ID && import.meta.env.PROD &&(
+  PUBLIC_GA_ID && import.meta.env.PROD &&(
     <>
       <!-- Google tag (gtag.js) -->
       <script is:inline type="text/partytown" src={taglink}></script>
-      <script is:inline type="text/partytown" define:vars={{GA_ID}}>
+      <script is:inline type="text/partytown" define:vars={{PUBLIC_GA_ID}}>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
           dataLayer.push(arguments);
         }
         gtag('js', new Date());
 
-        gtag('config', GA_ID);
+        gtag('config', PUBLIC_GA_ID);
       </script>
     </>
   )
 }
-    <title>{title} | {name}</title>
+    <title>{title} | {siteName}</title>
   </head>
   <body class="flex flex-col min-h-screen font-display font-normal px-4 max-w-7xl mx-auto bg-white text-black ">
-      <Header />
+      <Header 
+      siteName={PUBLIC_SITE_NAME}
+      />
       <main class="flex flex-col flex-1">
         <slot />
       </main>
-      <Footer />
+      <Footer 
+      siteName={siteName}
+      siteDesc={siteDesc}
+      />
   </body>
 </html>
 

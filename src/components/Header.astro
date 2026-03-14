@@ -1,7 +1,11 @@
 ---
-import { siteConfig } from "../config/site";
+interface Props{
+  siteName:string;
+}
+
+const{siteName}= Astro.props;
 ---
 
 <header class="h-12">
-  <a class="font-bold text-3xl hover:text-blue-600" href="/">{siteConfig.name}</a>
+  <a class="font-bold text-3xl hover:text-blue-600" href="/">{siteName}</a>
 </header>

@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   excerpt: string;
-  image: string;
+  image: ImageMetadata
   slug: string;
   date: Date;
   category: string;
@@ -16,15 +16,13 @@ const formattedDate = date.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-import {resolveNewsImage} from '/src/lib/resolveNewsImage.ts';
 import { Image } from 'astro:assets';
-const img = resolveNewsImage(image);
 ---
 
 <article class="article-card border">
   <a href={`/news/${slug}`} class="card-image-link">
     <div class="card-image-container">
-      <Image src={img} alt={title} loading="lazy" />
+      <Image src={image} alt={title} loading="lazy" />
     </div>
   </a>
   <div class="card-content">
