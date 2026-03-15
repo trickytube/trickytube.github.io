@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-const {PUBLIC_GA_ID, PUBLIC_SITE_NAME, PUBLIC_SITE_DESC} = import.meta.env;
+const {PUBLIC_GA_ID, PUBLIC_SITE_NAME, PUBLIC_SITE_DESCRIPTION} = import.meta.env;
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const { title } = Astro.props;
 const siteName = PUBLIC_SITE_NAME || "modify site name on .env or .env.development";
-const siteDesc = PUBLIC_SITE_DESC || "modify site description on .env or .env.development"
+const siteDesc = PUBLIC_SITE_DESCRIPTION || "modify site description on .env or .env.development"
 const taglink = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`
 ---
 
