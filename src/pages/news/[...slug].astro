@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
+import { getImage } from 'astro:assets';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('news');
@@ -19,10 +20,13 @@ const formattedDate = entry.data.publishDate.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-
+const optimizedImage = await getImage(
+  {src: entry.data.image}
+)
+const ogImage = optimizedImage.src;
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} ogImage={new URL(ogImage, Astro.site)} pageDesc={entry.data.excerpt}>
   <div class="flex justify-center">
     <div class="prose [&_a]:text-blue-600">
       <div class="flex justify-center gap-3">
