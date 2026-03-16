@@ -6,9 +6,11 @@ const {PUBLIC_GA_ID, PUBLIC_SITE_NAME, PUBLIC_SITE_DESCRIPTION} = import.meta.en
 
 interface Props {
   title: string;
+  ogImage?:URL;
+  pageDesc?:string;
 }
 
-const { title } = Astro.props;
+const { title, ogImage, pageDesc } = Astro.props;
 const siteName = PUBLIC_SITE_NAME || "modify site name on .env or .env.development";
 const siteDesc = PUBLIC_SITE_DESCRIPTION || "modify site description on .env or .env.development"
 const taglink = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`
@@ -40,6 +42,15 @@ const taglink = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`
     </>
   )
 }
+
+{
+  ogImage && <meta property="og:image" content={ogImage} />
+}
+
+{
+  pageDesc && <meta property="description" content={pageDesc}/>
+}
+
     <title>{title} | {siteName}</title>
   </head>
   <body class="flex flex-col min-h-screen font-display font-normal px-4 max-w-7xl mx-auto bg-white text-black ">

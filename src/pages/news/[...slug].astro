@@ -22,7 +22,7 @@ const formattedDate = entry.data.publishDate.toLocaleDateString('en-US', {
 
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} ogImage={new URL(entry.data.image.src, Astro.site)} pageDesc={entry.data.excerpt}>
   <div class="flex justify-center">
     <div class="prose [&_a]:text-blue-600">
       <div class="flex justify-center gap-3">
