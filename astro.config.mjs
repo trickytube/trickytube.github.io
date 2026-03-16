@@ -13,7 +13,7 @@ const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-  site:PUBLIC_SITE_URL,
+  site: `https://trickytube.com`,
   integrations: [partytown(), sitemap()],
 
   vite: {
