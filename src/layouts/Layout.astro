@@ -54,9 +54,7 @@ const taglink = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`
     <title>{title} | {siteName}</title>
   </head>
   <body class="flex flex-col min-h-screen font-display font-normal px-4 max-w-7xl mx-auto bg-white text-black ">
-      <Header 
-      siteName={siteName}
-      />
+      <Header/>
       <main class="flex flex-col flex-1">
         <slot />
       </main>
