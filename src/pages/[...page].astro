@@ -3,11 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import type { Page, GetStaticPaths } from 'astro';
 
-const allNews = await getCollection('news');
-const sortedNews = [...allNews].sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
-const featuredArticle = sortedNews.find(article => article.data.featured) || sortedNews[0];
 
+interface Props {
+  page: Page<CollectionEntry<"news">>;
+  featuredArticle: CollectionEntry<"news">;
+}
+
+export const getStaticPaths: GetStaticPaths =  async function getStaticPaths({paginate}) {
+  const allNews = await getCollection('news');
+  const sortedNews = [...allNews].sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+  const featuredArticle = sortedNews.find(article => article.data.featured) || sortedNews[0];
+  const otherNews = sortedNews.filter(article => article.slug != featuredArticle.slug)
+  return paginate(otherNews, {pageSize: 9, props: {
+    featuredArticle
+  }});
+}
+
+
+
+const {page, featuredArticle} = Astro.props as  Props;
+const pageData = page.data;
 ---
 
 <Layout title="Home">
@@ -22,7 +40,7 @@ const featuredArticle = sortedNews.find(article => article.data.featured) || sor
   <div class="">
     <h2 class="section-title">Latest News</h2>
     <div class="news-grid">
-      {sortedNews.map(article => (
+      {pageData.map(article => (
         <ArticleCard
           title={article.data.title}
           excerpt={article.data.excerpt}
