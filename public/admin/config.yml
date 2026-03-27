@@ -3,7 +3,7 @@
 # Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
-  repo: trickytube/trickytube.github.io
+  repo: trickytube/trickytube
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
@@ -26,12 +26,6 @@ auth:
   first_name_claim: first_name
   last_name_claim: last_name
   avatar_url_claim: avatar_url
-
-# Better Decap + Bridge logo (optional)
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-
-# Add site links in Decap CMS (optional)
-site_url: https://trickytube.com
 
 
 
